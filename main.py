@@ -9,7 +9,7 @@ driver = webdriver.Chrome()
 driver.get("https://www.amazon.in/s?k=bags&crid=2M096C61O4MLT&qid=1653308124&sprefix=ba%2Caps%2C283&ref=sr_pg_1")
 driver.maximize_window()
 
-for i in range(0, 19):
+for i in range(0, 18):
     product_URL = []
     product_Name = []
     Product_Price = []
@@ -28,7 +28,7 @@ for i in range(0, 19):
         try:
             Number_of_review.append(
                 div.find_element(By.XPATH, ".//div[@class='a-row a-size-small']").find_element(By.XPATH,
-                                                                                               ".//span/a/span").text)
+                                                                                               ".//span[last()]/a/span").text)
         except Exception as e:
             Number_of_review.append("NULL")
         try:
